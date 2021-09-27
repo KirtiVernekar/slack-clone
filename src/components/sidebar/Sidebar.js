@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Sidebar.scss'
 import { Badge } from 'antd'
 import { MinusCircleOutlined, FormOutlined, PlusOutlined, CaretUpOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, FileSearchOutlined, MessageOutlined, StarOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
 import SidebarOption from './SidebarOption'
+import db from '../../firebase/firebase'
 
 function Sidebar() {
+    const [channels, setChannels] = useState([]);
+
+    useEffect(() => {
+        db.collection('channels').onSnapshot(snapshot => 
+            setChannels(
+                snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    name: doc.data().name
+                }))
+            )
+        );
+    }, []);
+
+
     return (
         <div className='sidebar'>
             <div className='sidebar__header'>
@@ -30,6 +45,9 @@ function Sidebar() {
             <SidebarOption Icon={PlusOutlined} title='Add channels'/>
 
             {/* Connect to DB n list all channels */}
+            {channels.map(channel => (
+                <Sidebar title={channel.name} id={channel.id} />
+            ))}
 
         </div>
     )
