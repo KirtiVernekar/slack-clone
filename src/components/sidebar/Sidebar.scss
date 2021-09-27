@@ -1,0 +1,68 @@
+.sidebar {
+    color: white;
+    background-color: var(--slack-clone);
+    border: 1px solid #5C165C;
+    max-width: 240px;
+    min-height: 100vh;
+    // scroll-behavior: smooth;
+    // overflow: scroll;
+
+    hr {
+        margin: 0.5em 0;
+        border: 1px solid #5C165C;
+    }
+}
+
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3em;
+    border-bottom: 1px solid #5C165C;
+
+    .editBtn {
+        color: var(--slack-clone);
+        background-color: white;
+        padding: 0.5em;
+        border-radius: 999px;
+    }
+}
+
+.sidebar__info {
+    flex: 1;
+
+    h3 {
+        font-size: 1.1em;
+    }
+    h4 {
+        font-size: 0.9em;
+        font-weight: 200;
+    }
+}
+
+.sidebarOption {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1em;
+    opacity: 0.9;
+    cursor: pointer;
+
+    h4 {
+        font-weight: 400;
+        padding-bottom: 2px;
+    }
+
+    &:hover {
+        background-color: #4F134F;
+        opacity: 1;
+    }
+}
+
+.sidebarOption__icon, .sidebarOption__hash {
+    padding: 0.5em;
+}
+
+.sidebarOption__channel {
+    padding: 0.5em 0;
+}
