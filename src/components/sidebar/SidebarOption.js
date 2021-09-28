@@ -1,10 +1,31 @@
+import { template } from '@babel/core'
 import React from 'react'
-import './Sidebar.scss'
-import { NumberOutlined } from '@ant-design/icons'
+import { useHistory } from 'react-router'
+import db from '../../firebase/firebase.utils'
+import './SidebarOption.scss'
 
-function SidebarOption({ Icon, title }) {
+function SidebarOption({ Icon, title, id, addChannelOption }) {
+    const history = useHistory()
+
+    const addChannel = () => {
+        const channelName = prompt("Please enter the channel name")
+        if (channelName) {
+            db.collection('channels').add({
+                name: channelName
+            })
+        }
+    }
+
+    const selectChannel = () => {
+        if (id) {
+            history.push(`/channel/${id}`)
+        } else {
+            history.push(template)
+        }
+    }
+
     return (
-        <div className='sidebarOption'>
+        <div className='sidebarOption' onClick={addChannelOption ? addChannel : selectChannel }>
             { Icon && <Icon className='sidebarOption__icon' /> }
             { Icon ? (
                 <h4>{title}</h4>

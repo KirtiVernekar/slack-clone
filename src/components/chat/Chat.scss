@@ -1,0 +1,24 @@
+.chat {
+    flex: 0.7;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-bottom: 10em;
+}
+
+.chat__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border-bottom: 1px solid lightgray;
+}
+
+.chat__channelName {
+    // display: flex; - adding this disaligns star
+    text-transform: lowercase;
+}
+
+.star {
+    margin-left: 0.5em;
+    font-size: small;
+}

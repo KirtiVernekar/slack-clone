@@ -3,7 +3,7 @@ import './Sidebar.scss'
 import { Badge } from 'antd'
 import { MinusCircleOutlined, FormOutlined, PlusOutlined, CaretUpOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, FileSearchOutlined, MessageOutlined, StarOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
 import SidebarOption from './SidebarOption'
-import db from '../../firebase/firebase'
+import db from '../../firebase/firebase.utils'
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
@@ -42,11 +42,11 @@ function Sidebar() {
             <SidebarOption Icon={CaretDownOutlined} title='Channels'/>
             {/* <SidebarOption title='discussions'/> */}
             <hr />
-            <SidebarOption Icon={PlusOutlined} title='Add channels'/>
+            <SidebarOption addChannelOption Icon={PlusOutlined} title='Add channels'/>
 
             {/* Connect to DB n list all channels */}
             {channels.map(channel => (
-                <Sidebar title={channel.name} id={channel.id} />
+                <SidebarOption title={channel.name} id={channel.id} />
             ))}
 
         </div>
