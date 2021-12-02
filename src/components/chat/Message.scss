@@ -1,21 +1,35 @@
 .message {
     display: flex;
     align-items: center;
-    padding: 1em;
+    padding: 0.8em 1em;
+    //border-bottom: 1px solid lightgray;
 
     img {
-        width: 50px;
-        height: 50px;
+        width: 2.5em;
+        height: 2.5em;
         object-fit: contain;   //to maintain aspect-ratio
+        border: none;
+        border-radius: 0.2em;
+        flex-shrink: 0;
     }
 }
 
 .message__info {
     padding: 0.5em;
+
+    h5 {
+        font-size: medium;
+    }
+
+    p {
+        color: #333;
+    }
 }
 
 .message__timestamp {
+    margin-left: 0.3em;
     color: gray;
     font-weight: 400;
-    font-size: 0.85em;
+    font-size: 0.8em;
+
 }

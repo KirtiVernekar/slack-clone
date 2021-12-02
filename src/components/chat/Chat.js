@@ -4,11 +4,15 @@ import { useParams } from 'react-router-dom'
 import { StarOutlined, InfoCircleOutlined } from '@ant-design/icons'
 import db from '../../firebase/firebase.utils'
 import Message from './Message'
+import ChatInput from './ChatInput'
+import SkeletonLoader from '../loader/SkeletonLoader'
 
 function Chat() {
     const { channelId } = useParams()
     const [ channelDetails, setChannelDetails ] = useState(null)
     const [ messages, setMessages] = useState([])
+    const [ isLoading, setIsLoading ] = useState(true)
+
 
     useEffect(() => {
         if (channelId) {
@@ -23,35 +27,51 @@ function Chat() {
         .onSnapshot((snapshot) => 
             setMessages(snapshot.docs.map(doc => doc.data()))
         )
+        
+        setIsLoading(false);
+        // const timeout = setTimeout(() => {
+        //     setIsLoading(false);
+        // }, 5000)
+        // return () => clearTimeout(timeout);
     }, [channelId]);
 
-    //console.log(messages)
 
     return (
-        <div className='chat'>
-            <div className="chat__header">
-                <div className="chat__headerLeft">
-                    <h4 className="chat__channelName">
-                        <strong># {channelDetails?.name}</strong>
-                        <StarOutlined className="star"/>
-                    </h4>
-                </div>
-                <div className="chat__headerRight">
-                    <p><InfoCircleOutlined />Details</p>
-                </div>
+        isLoading ? (
+            <div className='chat'>
+                <div className="chat__header"></div>
+                <SkeletonLoader />
             </div>
-            <div className="chat__messages">
-                {messages.map( ({message, timestamp, user, profileImage}) => (
-                    <Message 
-                        message={message}
-                        timestamp={timestamp}
-                        user={user}
-                        profileImage={profileImage}
-                    />
-                ))}
+        ) : (
+            <div className='chat'>
+                <div className="chat__header">
+                    <div className="chat__headerLeft">
+                        <h4 className="chat__channelName">
+                            <strong># {channelDetails?.name}</strong>
+                            <StarOutlined className="star"/>
+                        </h4>
+                        <p className="chat__channelDescription">{channelDetails?.description}</p>
+                    </div>
+                    <div className="chat__headerRight">
+                        <p><InfoCircleOutlined />Details</p>
+                    </div>
+                </div>
+                <div className="chat__messages">
+                    {messages.map( ({message, timestamp, user, profileImage}) => (
+                        <Message 
+                            // key={message.id}
+                            message={message}
+                            timestamp={timestamp}
+                            user={user}
+                            profileImage={profileImage}
+                        />
+                    ))}
+                </div>
+                <ChatInput channelName={channelDetails?.name} channelId={channelId} />
             </div>
-        </div>
+        )
     )
+
 }
 
 export default Chat

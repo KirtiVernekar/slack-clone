@@ -2,7 +2,6 @@ import React from 'react'
 import './Message.scss'
 
 function Message({message, timestamp, user, profileImage}) {
-    console.log(profileImage)
     return (
         <div className='message'>
             <img src={profileImage} alt="Not loading" />

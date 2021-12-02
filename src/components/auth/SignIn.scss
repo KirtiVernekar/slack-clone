@@ -1,0 +1,105 @@
+.signin {
+    height: 100vh;
+    background-color: #F2F2F2;
+    display: grid;
+    justify-content: center;
+    place-items: center;
+}
+
+.signin__container {
+    text-align: center;
+    padding: 6em;
+    background-color: white;
+    border-radius: 0.8em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(46, 46, 46, 0.24);
+
+    img {
+        object-fit: contain;
+        height: 2em;
+        margin-bottom: 2em;
+    }
+
+    h1 {
+        font-size: 2.4em;
+    }
+
+    p {
+        font-size: 1em;
+        color: gray;
+        margin: 1em;
+    }
+
+    
+    
+}
+
+.signin__form {
+    width: 400px;
+
+    input {
+        box-sizing: border-box;
+        width: inherit;
+        margin-top: 1em;
+        padding: 0.5em;
+        border-radius: 0.3em;
+        border: 1px solid gray;
+        font-size: 1.1em;
+        //transition: border 80ms ease-out, box-shadow 80ms ease-out;
+
+        // :focus {
+        //     border: 2px solid #6198f0
+        // }
+    }
+
+    button {
+        width: inherit;
+        margin: 1em 0;
+        padding: 0.5em;
+        //text-transform: inherit !important;
+        color: white;
+        background-color: #4a154b;
+        border: none;
+        border-radius: 0.3em;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: box-shadow 2ms ease-out;
+
+        &:hover {
+            box-shadow: 0 1px 4px rgba(0,0,0,.4)
+        }
+    }
+
+    button.google {
+        background-color: white;
+        color: #4285f4;
+        border: 2px solid #4285f4;
+
+        #logo {
+            padding: 0 0.5em;
+        }
+    }
+}
+
+
+.signin__hr {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: content-box;
+    
+    hr {
+        width: 90%;
+        border: none;
+        border-top: 1px solid #ccc;
+        height: -1em;
+        padding: 0 2em;
+    }
+    
+    span {
+        opacity: 0.8;
+        padding: 0 1em;
+    }
+}
+
+
+

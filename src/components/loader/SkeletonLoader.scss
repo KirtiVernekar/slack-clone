@@ -1,0 +1,60 @@
+.skeleton {
+  opacity: .7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.7rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.2rem;
+
+  &:first-child {
+    width: 20%;
+    height: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  &:last-child {
+    width: 80%;
+    margin-bottom: 0;
+  }
+}
+
+  
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 60%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 90%);
+  }
+}
+
+
+.messages {
+  list-style: none;
+  margin: auto 1.5em;
+}
+
+.grid {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  justify-content: left;
+  align-items: top;
+  //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 3em 50em;
+  gap: 0.5em;
+}
+
+.avatar {
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: cover;
+  border: none;
+  border-radius: 0.2em;
+  flex-shrink: 0;
+}
+

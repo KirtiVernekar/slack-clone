@@ -6,19 +6,38 @@
 }
 
 .chat__header {
+    height: 2.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 0.3em 1em;
     border-bottom: 1px solid lightgray;
 }
 
-.chat__channelName {
-    // display: flex; - adding this disaligns star
-    text-transform: lowercase;
+.chat__headerLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    .chat__channelName {
+        // display: flex; - adding this disaligns star
+        text-transform: lowercase;
+        font-size: 120%;
+    
+        .star {
+            margin-left: 0.5em;
+            font-size: small;
+        }
+    }
+    
+    .chat__channelDescription {
+        color: gray;
+        margin-left: 1em;
+        font-size: 85%;
+    }
+    
 }
 
-.star {
-    margin-left: 0.5em;
-    font-size: small;
-}
+
+
+

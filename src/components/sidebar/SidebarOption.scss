@@ -3,7 +3,7 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 1em;
-    opacity: 0.9;
+    opacity: 0.8;
     cursor: pointer;
 
     h4 {
@@ -19,13 +19,14 @@
 
 .sidebarOption__icon {
     padding: 0.5em;
+    margin-left: 0.5em;
 }
 
 .sidebarOption__hash {
-    padding: 0.5em;
+    padding: 0.8em;
 }
 
 .sidebarOption__channel {
     padding: 0.5em 0;
-    margin-left: 0.5em;
+    margin-left: 1em;
 }

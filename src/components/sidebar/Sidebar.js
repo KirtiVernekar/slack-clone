@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './Sidebar.scss'
 import { Badge } from 'antd'
 import { MinusCircleOutlined, FormOutlined, PlusOutlined, CaretUpOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, FileSearchOutlined, MessageOutlined, StarOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
 import SidebarOption from './SidebarOption'
 import db from '../../firebase/firebase.utils'
+import { StateContext } from '../../context/GlobalState';
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
+    const {user} = useContext(StateContext)
 
     useEffect(() => {
         db.collection('channels').onSnapshot(snapshot => 
@@ -26,7 +28,7 @@ function Sidebar() {
                 <div className='sidebar__info'>
                     <h3>Channel Name</h3>
                     {/* <MinusCircleOutlined size='small'/><h4>Username</h4> */}
-                    <Badge size="large" color="#00FF00"><h4>Username</h4></Badge>
+                    <Badge size="large" color="#00FF00"><h4>{user?.displayName}</h4></Badge>
                 </div>
                 <FormOutlined className='editBtn' />
             </div>
