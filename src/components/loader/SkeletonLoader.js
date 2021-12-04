@@ -10,7 +10,7 @@ function SkeletonLoader() {
               .map((index) => (
                 <div key={index}>
                   <div className="grid">
-                    <img className="avatar skeleton" src="" />
+                    <img className="avatar skeleton" src="" alt=""/>
                     <div data-body>
                         <div className="skeleton skeleton-text"></div>
                       <div className="skeleton skeleton-text"></div>

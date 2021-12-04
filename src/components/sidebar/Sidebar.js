@@ -21,6 +21,7 @@ function Sidebar() {
         );
     }, []);
 
+    console.log(channels);
 
     return (
         <div className='sidebar'>

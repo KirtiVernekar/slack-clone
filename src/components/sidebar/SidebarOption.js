@@ -1,11 +1,11 @@
 import { template } from '@babel/core'
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import db from '../../firebase/firebase.utils'
 import './SidebarOption.scss'
 
 function SidebarOption({ Icon, title, id, addChannelOption }) {
-    const history = useHistory()
+    const history = useNavigate();
 
     const addChannel = () => {
         const channelName = prompt("Please enter the channel name")
@@ -18,9 +18,9 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
 
     const selectChannel = () => {
         if (id) {
-            history.push(`/channel/${id}`)
+            history(`/channel/${id}`);
         } else {
-            history.push(template)
+            history(template);
         }
     }
 

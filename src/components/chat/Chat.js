@@ -7,8 +7,8 @@ import Message from './Message'
 import ChatInput from './ChatInput'
 import SkeletonLoader from '../loader/SkeletonLoader'
 
-function Chat() {
-    const { channelId } = useParams()
+const Chat = ({ channelId }) => {
+    // const { channelId } = useParams()
     const [ channelDetails, setChannelDetails ] = useState(null)
     const [ messages, setMessages] = useState([])
     const [ isLoading, setIsLoading ] = useState(true)
