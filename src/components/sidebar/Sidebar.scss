@@ -1,16 +1,21 @@
 .sidebar {
-    flex: 0.3;
-    color: white;
-    background-color: var(--slack-clone);
-    border: 1px solid #5C165C;
-    max-width: 240px;
+    // flex: 0.15;
+    width: 240px;
     min-height: 100vh;
+    color: white;
+    background-color: var(--slack-color-primary);
+    border: 1px solid var(--slack-color-secondary);
     // scroll-behavior: smooth;
     // overflow: scroll;
 
     hr {
         margin: 0.5em 0;
-        border: 1px solid #5C165C;
+        border: 1px solid var(--slack-color-secondary);
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
     }
 }
 
@@ -20,10 +25,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.3em;
-    border-bottom: 1px solid #5C165C;
+    border-bottom: 1px solid var(--slack-color-secondary);
 
     .editBtn {
-        color: var(--slack-clone);
+        color: var(--slack-color-primary);
         background-color: white;
         padding: 0.5em;
         border-radius: 999px;

@@ -1,10 +1,10 @@
 import { template } from '@babel/core'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import db from '../../firebase/firebase.utils'
 import './SidebarOption.scss'
 
-function SidebarOption({ Icon, title, id, addChannelOption }) {
+function SidebarOption({ Icon, title, id, link, addChannelOption }) {
     const history = useNavigate();
 
     const addChannel = () => {
@@ -35,7 +35,16 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
                 </h4>
             ) }
             
-            
+            {/* if (Icon) {
+                <>
+                <h4>{title}</h4>
+                <Link to={link}/>
+                </>
+            } else {
+                <h4 className='sidebarOption__channel'>
+                    <span className='sidebarOption__hash'>#</span>{title}
+                </h4>
+            } */}
         </div>
     )
 }

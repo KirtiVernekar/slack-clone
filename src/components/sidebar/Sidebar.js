@@ -1,10 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react'
-import './Sidebar.scss'
+import { Link } from 'react-router-dom'
 import { Badge } from 'antd'
-import { MinusCircleOutlined, FormOutlined, PlusOutlined, CaretUpOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, FileSearchOutlined, MessageOutlined, StarOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
+import { FormOutlined, PlusOutlined, MoreOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, 
+         FileSearchOutlined, MessageOutlined, StarOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
 import SidebarOption from './SidebarOption'
 import db from '../../firebase/firebase.utils'
 import { StateContext } from '../../context/GlobalState';
+import './Sidebar.scss'
+
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
@@ -33,14 +36,14 @@ function Sidebar() {
                 </div>
                 <FormOutlined className='editBtn' />
             </div>
-            <SidebarOption Icon={MessageOutlined} title='Threads'/>
-            <SidebarOption Icon={HeartOutlined} title='Mentions & reactions'/>
-            <SidebarOption Icon={BookOutlined} title='Saved items'/>
-            <SidebarOption Icon={GlobalOutlined} title='Channel browser'/>
-            <SidebarOption Icon={FileSearchOutlined} title='File browser'/>
-            <SidebarOption Icon={TeamOutlined} title='People & user groups'/>
-            <SidebarOption Icon={AppstoreOutlined} title='Apps'/>
-            <SidebarOption Icon={CaretUpOutlined} title='Show less'/>
+            <Link to="/user/threads"><SidebarOption Icon={MessageOutlined} title='Threads' /></Link>
+            <Link to="/user/activity-page"><SidebarOption Icon={HeartOutlined} title='Mentions & reactions' /></Link>
+            <Link to="/user/saved-page"><SidebarOption Icon={BookOutlined} title='Saved items' /></Link>
+            <Link to="/user/browse-channels"><SidebarOption Icon={GlobalOutlined} title='Channel browser' /></Link>
+            <Link to="/user/browse-files"><SidebarOption Icon={FileSearchOutlined} title='File browser' /></Link>
+            <Link to="/user/browse-people"><SidebarOption Icon={TeamOutlined} title='People & user groups' /></Link>
+            <Link to="/user/apps"><SidebarOption Icon={AppstoreOutlined} title='Apps' /></Link>
+            <SidebarOption Icon={MoreOutlined} title='More'/>
             <hr />
             <SidebarOption Icon={CaretDownOutlined} title='Channels'/>
             {/* <SidebarOption title='discussions'/> */}

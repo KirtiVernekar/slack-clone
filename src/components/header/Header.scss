@@ -4,41 +4,43 @@
     align-items: center;
     width: 100vw;
     height: 2.5em;
-    background-color: var(--slack-clone);
+    background-color: var(--slack-color-primary);
     color: white;
 }
 
 .header__left {
     flex: 0.3;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin-left: 20px;
-
-    .clock {
-        margin-left: auto;
-        margin-right: 20px;
-    }
+    margin-right: 20px;
 }
 
 .header__search {
     flex: 0.4;
-    background-color: #4F134F;
+    background-color: #662366;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
-    padding: 0 50px;
-    color: #BFBFBF;
-    border: 1px solid #BFBFBF;
+    padding: 0 20px;
+    color: #fff;
+    // border: 1px solid #BFBFBF;
     border-radius: 5px;
 
     & input {
         background-color: transparent;
         border: none;
-        color: #BFBFBF;
-        text-align: left;
-        min-width: 30vw;
-        min-height: 1.5em;
+        color: #fff;
+        width: 100%;
+        height: 1.6em;
+
+        &::placeholder {
+            opacity: 1;
+        }
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 
@@ -47,6 +49,10 @@
     flex: 0.3;
     display: flex;
     justify-content: flex-end;
-    margin-left: auto;
+    align-items: center;
     margin-right: 20px;
+}
+
+.user-avatar {
+    margin-left: 15px;
 }

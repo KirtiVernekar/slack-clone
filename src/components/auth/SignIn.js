@@ -1,17 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './SignIn.scss'
 import { GoogleOutlined } from '@ant-design/icons'
-import { auth, providerGoogle, providerEmail } from './../../firebase/firebase.utils'
+import { auth, providerGoogle } from './../../firebase/firebase.utils'
 import { StateContext } from '../../context/GlobalState'
+import './SignIn.scss'
 
 
 function SignIn() {
     const navigate = useNavigate();
     const {setUser} = useContext(StateContext);
+    const [formData, setFormData] = useState({  
+                                                email: '',
+                                                password: ''
+                                            });
 
-    const signInGoogle = (e) => {
-        e.preventDefault();
+    const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.id]: event.target.value, });
+    }
+
+    const signInGoogle = (event) => {
+        event.preventDefault();
 
         auth.signInWithPopup(providerGoogle).then ((result) => {
             setUser(result.user);
@@ -22,12 +30,13 @@ function SignIn() {
         });
     }
 
-    const signInEmail = (e) => {
-        e.preventDefault();
+    const signInEmail = (event) => {
+        event.preventDefault();
 
-        auth.signInWithEmailAndPassword(providerEmail).then ((result) => {
+        auth.signInWithEmailAndPassword(formData.email, formData.password).then ((result) => {
             setUser(result.user);
             sessionStorage.setItem('currentUser', JSON.stringify(result.user));
+            navigate('/');
         }).catch(error => {
             alert(error.message);
         });
@@ -47,15 +56,15 @@ function SignIn() {
                     </div>
                     <div className='signin__form--email'>
                         <label id="email-label" for="email">Email address</label>
-                        <input id="email" type="email" placeholder="name@work-email.com" />
+                        <input id="email" type="email" placeholder="name@work-email.com" onChange={handleChange}/>
                     </div>
                     <div className='signin__form--pwd'>
                         <label id="password-label" for="email">Password</label>
-                        <input id="password" type="password" placeholder="Your password" />
+                        <input id="password" type="password" placeholder="Your password" onChange={handleChange}/>
                     </div>
                     <button onClick={signInEmail}>Sign In</button>
                 </div>
-                <div className='signup'>
+                <div className='signup__link'>
                     <p>Are you new to Slack?</p>
                     <Link to="/signup">Sign Up!</Link>
                 </div>

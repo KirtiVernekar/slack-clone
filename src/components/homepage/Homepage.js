@@ -1,12 +1,13 @@
-import React, {useContext, useState} from 'react'
-import { Route, Navigate, useParams } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { Navigate, useParams } from 'react-router-dom';
 import { StateContext } from '../../context/GlobalState'
 import { getAuth } from "firebase/auth";
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import Chat from '../chat/Chat'
+import FillerComponent from '../filler/FillerComponent';
 import './Homepage.scss';
-import { Link } from 'react-router-dom';
+
 
 
 function Homepage() {
@@ -25,7 +26,10 @@ function Homepage() {
                 <Header />
                 <div className="homepage">
                     <Sidebar />
-                    { channelId ? <Chat channelId={channelId} /> : <h2>Welcome to Slack!</h2> }
+                    { channelId 
+                        ? <Chat channelId={channelId} /> 
+                        : <FillerComponent welcomePage />
+                    }
                 </div>
             </>
         )}
