@@ -14,7 +14,7 @@ function Homepage() {
     const {user} = useContext(StateContext)
     // const auth = getAuth();
     // const user = auth.currentUser;
-    console.log("Homepage", user);
+    // console.log("Homepage", user);
     const { channelId } = useParams();
 
     return (

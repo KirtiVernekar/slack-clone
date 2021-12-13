@@ -28,11 +28,11 @@ const Chat = ({ channelId }) => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         )
         
-        setIsLoading(false);
-        // const timeout = setTimeout(() => {
-        //     setIsLoading(false);
-        // }, 5000)
-        // return () => clearTimeout(timeout);
+        // setIsLoading(false);
+        const timeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 5000)
+        return () => clearTimeout(timeout);
     }, [channelId]);
 
 

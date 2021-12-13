@@ -36,8 +36,6 @@ const FillerComponent = ({ welcomePage }) => {
                 image: apps
             }
     }
-
-    console.log(welcomePage)
     
     return (
         <div className="filler">

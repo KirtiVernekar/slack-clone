@@ -1,50 +1,35 @@
 import { template } from '@babel/core'
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import db from '../../firebase/firebase.utils'
+import { useNavigate } from 'react-router-dom'
 import './SidebarOption.scss'
 
-function SidebarOption({ Icon, title, id, link, addChannelOption }) {
-    const history = useNavigate();
+function SidebarOption({ Icon, title, id, navLink, addChannelOption }) {
+    const navigate = useNavigate();
 
-    const addChannel = () => {
-        const channelName = prompt("Please enter the channel name")
-        if (channelName) {
-            db.collection('channels').add({
-                name: channelName
-            })
-        }
+    const selectNavLink = () => {
+        navigate(`/user/${navLink}`);
     }
 
     const selectChannel = () => {
         if (id) {
-            history(`/channel/${id}`);
+            navigate(`/channel/${id}`);
         } else {
-            history(template);
+            navigate(template);
         }
     }
 
     return (
-        <div className='sidebarOption' onClick={addChannelOption ? addChannel : selectChannel }>
-            { Icon && <Icon className='sidebarOption__icon' /> }
+        <div className='sidebarOption' onClick={ navLink ? selectNavLink : selectChannel }>
             { Icon ? (
-                <h4>{title}</h4>
+                <>
+                    <Icon className='sidebarOption__icon' />
+                    <h4>{title}</h4>
+                </>
             ) : (
                 <h4 className='sidebarOption__channel'>
                     <span className='sidebarOption__hash'>#</span>{title}
                 </h4>
             ) }
-            
-            {/* if (Icon) {
-                <>
-                <h4>{title}</h4>
-                <Link to={link}/>
-                </>
-            } else {
-                <h4 className='sidebarOption__channel'>
-                    <span className='sidebarOption__hash'>#</span>{title}
-                </h4>
-            } */}
         </div>
     )
 }
