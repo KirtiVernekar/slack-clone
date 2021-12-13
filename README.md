@@ -15,13 +15,17 @@
 
 ## :bulb:Features
 
-:heavy_check_mark: Fetching realtime data from multiple sources using RapidAPI and RTK Query
+:heavy_check_mark: Realtime group chat
 
-:heavy_check_mark: State management using Redux
+:heavy_check_mark: Chat supports images and GIFs
 
-:heavy_check_mark: Glassmorphic UI
+:heavy_check_mark: Emoji reactions to messages
 
-:heavy_check_mark: Responsive design
+:heavy_check_mark: Reply in threads
+
+:heavy_check_mark: Login with Google or Email-Password
+
+:heavy_check_mark: User session persistence
 
 
 ## :hammer:Built with
