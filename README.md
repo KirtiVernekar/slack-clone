@@ -1,6 +1,6 @@
 <h1 align="center">Slack Clone</h1>
 
-<p align="center"><a href="https://slack-clone-by-kirti.web.app" target="blank">Live View</a></p>
+<p align="center"><a href="https://slack-clone-by-kirti.web.app" target="_blank">Live View</a></p>
 <hr />
 <div align="center" autoplay={true} muted={true} loop={true} object-fit="cover">
 
