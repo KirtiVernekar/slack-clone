@@ -5,7 +5,7 @@ function SkeletonLoader() {
     return (
       <section>
         <div className="messages">
-            {Array(9)
+            {Array(7)
               .fill()
               .map((index) => (
                 <div key={index}>

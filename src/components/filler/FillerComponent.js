@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { apps, bookmarks, channels, files, groups, mentions, threads, welcome } from '../../images/index'
 import './FillerComponent.scss'
 
-const FillerComponent = ({ welcomePage }) => {
+const FillerComponent = () => {
     const { navlink } = useParams();
 
     const fillerPages = {
@@ -39,17 +39,17 @@ const FillerComponent = ({ welcomePage }) => {
     
     return (
         <div className="filler">
-            { welcomePage
+            { navlink
                 ? (
                     <>
-                        <h2>Welcome to Slack!</h2>
-                        <img src={welcome} alt="welcome image"/>
+                        <h2>{fillerPages[navlink].title}</h2>
+                        <p>Coming soon!</p>
+                        <img src={fillerPages[navlink].image} alt={navlink}/>
                     </>
                 ) : (
                     <>
-                        <img src={fillerPages[navlink].image} alt={navlink}/>
-                        <h2>{fillerPages[navlink].title}</h2>
-                        <p>Coming soon!</p>
+                        <h2>Welcome to Slack!</h2>
+                        <img src={welcome} alt="welcome"/>
                     </>
                 )}
         </div>

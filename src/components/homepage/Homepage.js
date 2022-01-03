@@ -8,8 +8,6 @@ import Chat from '../chat/Chat'
 import FillerComponent from '../filler/FillerComponent';
 import './Homepage.scss';
 
-
-
 function Homepage() {
     const {user} = useContext(StateContext)
     // const auth = getAuth();
@@ -28,7 +26,7 @@ function Homepage() {
                     <Sidebar />
                     { channelId 
                         ? <Chat channelId={channelId} /> 
-                        : <FillerComponent welcomePage />
+                        : <FillerComponent />
                     }
                 </div>
             </>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { PlusSquareOutlined } from '@ant-design/icons'
 import db from '../../firebase/firebase.utils'
-import { collection, addDoc } from 'firebase/firestore'
 import './AddChannel.scss'
 
 function AddChannel() {

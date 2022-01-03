@@ -17,7 +17,7 @@
 
 :heavy_check_mark: Realtime group chat
 
-:heavy_check_mark: Chat supports images and GIFs
+:heavy_check_mark: Chat supports image and GIF uploads
 
 :heavy_check_mark: Emoji reactions to messages
 
@@ -26,6 +26,8 @@
 :heavy_check_mark: Login with Google or Email-Password
 
 :heavy_check_mark: User session persistence
+
+:heavy_check_mark: Skeleton loader
 
 
 ## :hammer:Built with

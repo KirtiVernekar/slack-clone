@@ -14,11 +14,13 @@ function App() {
     <StateProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<Homepage/>} />
-            <Route exact path="/signin" element={<SignIn/>} />
-            <Route exact path="/signup" element={<SignUp/>} />
-            <Route exact path="/channel/:channelId" element={<Chat/>} />
-            <Route exact path="/user/:navlink" element={<FillerComponent/>} />
+            <Route path="/" element={<Homepage/>}>
+              <Route path="channel/:channelId" element={<Chat/>} />
+              <Route path="user/:navlink" element={<FillerComponent/>} />
+            </Route>
+            <Route path="/signin" element={<SignIn/>} />
+            <Route path="/signup" element={<SignUp/>} />
+            
           </Routes>
         </Router>
     </StateProvider>

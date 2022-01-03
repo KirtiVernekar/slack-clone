@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import './Chat.scss'
-import { useParams } from 'react-router-dom'
-import { StarOutlined, InfoCircleOutlined } from '@ant-design/icons'
+import { InfoCircleOutlined } from '@ant-design/icons'
 import db from '../../firebase/firebase.utils'
 import Message from './Message'
 import ChatInput from './ChatInput'
 import SkeletonLoader from '../loader/SkeletonLoader'
+import './Chat.scss'
 
 const Chat = ({ channelId }) => {
-    // const { channelId } = useParams()
-    const [ channelDetails, setChannelDetails ] = useState(null)
-    const [ messages, setMessages] = useState([])
-    const [ isLoading, setIsLoading ] = useState(true)
+    const [ channelDetails, setChannelDetails ] = useState(null);
+    const [ messages, setMessages] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(true);
 
 
     useEffect(() => {
@@ -31,7 +29,7 @@ const Chat = ({ channelId }) => {
         // setIsLoading(false);
         const timeout = setTimeout(() => {
             setIsLoading(false);
-        }, 5000)
+        }, 3000)
         return () => clearTimeout(timeout);
     }, [channelId]);
 
@@ -48,7 +46,6 @@ const Chat = ({ channelId }) => {
                     <div className="chat__headerLeft">
                         <h4 className="chat__channelName">
                             <strong># {channelDetails?.name}</strong>
-                            <StarOutlined className="star"/>
                         </h4>
                         <p className="chat__channelDescription">{channelDetails?.description}</p>
                     </div>
