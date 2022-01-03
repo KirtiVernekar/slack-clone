@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { Avatar} from 'antd';
+// import { Avatar} from 'antd';
 import { ClockCircleOutlined, QuestionCircleOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons'
 import { StateContext } from '../../context/GlobalState';
 import { auth } from './../../firebase/firebase.utils'
@@ -7,7 +7,7 @@ import './Header.scss'
 
 
 function Header() {
-    const {user} = useContext(StateContext);
+    // const {user} = useContext(StateContext);
     const {setUser} = useContext(StateContext);
 
     const signOut = (e) => {
