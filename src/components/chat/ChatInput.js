@@ -46,6 +46,7 @@ function ChatInput({ channelName, channelId }) {
                 <button 
                     type="submit"
                     onClick={sendMessage}>
+                    
                     <SendOutlined />
                 </button>
             </form>
