@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Navigate, useParams } from 'react-router-dom';
 import { StateContext } from '../../context/GlobalState'
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import Chat from '../chat/Chat'

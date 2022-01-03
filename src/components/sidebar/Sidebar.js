@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FormOutlined, MoreOutlined, CaretDownOutlined, GlobalOutlined, HeartOutlined, 
-         FileSearchOutlined, MessageOutlined, BookOutlined, TeamOutlined, AppstoreOutlined, PlusSquareOutlined } from '@ant-design/icons'
+         FileSearchOutlined, MessageOutlined, BookOutlined, TeamOutlined, AppstoreOutlined } from '@ant-design/icons'
 import SidebarOption from './SidebarOption'
 import AddChannel from '../modal/AddChannel'
 import db from '../../firebase/firebase.utils'
-import { StateContext } from '../../context/GlobalState';
+// import { StateContext } from '../../context/GlobalState';
 import './Sidebar.scss'
 
 

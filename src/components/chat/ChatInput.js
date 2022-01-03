@@ -4,7 +4,7 @@ import { SendOutlined } from '@ant-design/icons';
 import './ChatInput.scss'
 import { StateContext } from '../../context/GlobalState';
 import firebase from '@firebase/app-compat';
-import db, { auth } from '../../firebase/firebase.utils';
+import db from '../../firebase/firebase.utils';
 
 function ChatInput({ channelName, channelId }) {
     const [messageInput, setMessageInput] = useState("");
