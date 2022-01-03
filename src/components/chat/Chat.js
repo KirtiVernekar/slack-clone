@@ -54,9 +54,9 @@ const Chat = ({ channelId }) => {
                     </div>
                 </div>
                 <div className="chat__messages">
-                    {messages.map( ({message, timestamp, user, profileImage}) => (
+                    {messages.map(({message, timestamp, user, profileImage}) => (
                         <Message 
-                            // key={message.id}
+                            key={timestamp}
                             message={message}
                             timestamp={timestamp}
                             user={user}

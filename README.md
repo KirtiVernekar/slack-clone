@@ -33,7 +33,7 @@
 ## :hammer:Built with
 
 - ReactJS
-- Redux
+- Context API
 - Firebase
 - Ant Design Icons
 

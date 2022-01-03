@@ -1,17 +1,36 @@
 import React, { useState, useContext } from 'react'
-import { SendOutlined } from '@ant-design/icons';
-// import { Picker }
+import { SendOutlined, SmileOutlined, PaperClipOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
+import { Picker } from "emoji-mart";
+import 'emoji-mart/css/emoji-mart.css'
 import './ChatInput.scss'
 import { StateContext } from '../../context/GlobalState';
 import firebase from '@firebase/app-compat';
 import db from '../../firebase/firebase.utils';
 
 function ChatInput({ channelName, channelId }) {
-    const [messageInput, setMessageInput] = useState("");
     const { user } = useContext(StateContext);
+    const [messageInput, setMessageInput] = useState("");
+    const [emojiPicker, setEmojiPicker] = useState(false);
+    const [fileUpload, setFileUpload] = useState();
+    
+    const handleTogglePicker = (event) => {
+        event.preventDefault();
+        setEmojiPicker(!emojiPicker);
+    }
+ 
+    const handleAddEmoji = (emoji) => {
+        const newMessage = messageInput + emoji.native;
+        setMessageInput(newMessage);
+        // setEmojiPicker(false);
+    }; 
 
-    const sendMessage = (e) => {
-        e.preventDefault();
+    const handleAttachFile = (event) => {
+        event.preventDefault();
+    }
+
+    const sendMessage = (event) => {
+        event.preventDefault();
         
         if(!messageInput) {
             alert("No message entered!")
@@ -29,6 +48,7 @@ function ChatInput({ channelName, channelId }) {
     }
 
     return (
+        <>
         <div className='chatInput'>
             <form>
                 <input 
@@ -36,21 +56,39 @@ function ChatInput({ channelName, channelId }) {
                     type="text" 
                     value={messageInput}
                     placeholder={`Message #${channelName?.toLowerCase()}`} />
-                {/* <Picker
-                    set="apple"
-                    onSelect={this.handleAddEmoji}
-                    className="emojipicker"
-                    title="Pick your emoji"
-                    emoji="point_up"
-                /> */}
-                <button 
-                    type="submit"
-                    onClick={sendMessage}>
-                    
-                    <SendOutlined />
-                </button>
+                <Tooltip title="Add Emoji" placement="top">
+                    <button 
+                        onClick={handleTogglePicker}>
+                        <SmileOutlined />
+                    </button>
+                </Tooltip>
+                <Tooltip title="Attach File" placement="top">
+                    <button 
+                        onClick={handleAttachFile}>
+                        <PaperClipOutlined />
+                    </button>
+                </Tooltip>
+                <Tooltip title="Send now" placement="top">
+                    <button 
+                        type="submit"
+                        onClick={sendMessage}>
+                        <SendOutlined />
+                    </button>
+                </Tooltip>
             </form>
         </div>
+        {   emojiPicker &&
+            <div className="emojiPicker">
+                <Picker
+                    set="twitter"
+                    showPreview={false}
+                    onSelect={handleAddEmoji}
+                    title="Pick your emoji"
+                    emoji="point_up"
+                />
+            </div>
+        }
+        </>
     )
 }
 
