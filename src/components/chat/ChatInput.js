@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { SendOutlined } from '@ant-design/icons';
+// import { Picker }
 import './ChatInput.scss'
 import { StateContext } from '../../context/GlobalState';
 import firebase from '@firebase/app-compat';
@@ -35,16 +36,18 @@ function ChatInput({ channelName, channelId }) {
                     type="text" 
                     value={messageInput}
                     placeholder={`Message #${channelName?.toLowerCase()}`} />
-                <Picker
+                {/* <Picker
                     set="apple"
                     onSelect={this.handleAddEmoji}
                     className="emojipicker"
                     title="Pick your emoji"
                     emoji="point_up"
-                />
+                /> */}
                 <button 
                     type="submit"
                     onClick={sendMessage}>
+                    <SendOutlined />
+                    <SendOutlined />
                     <SendOutlined />
                 </button>
             </form>
