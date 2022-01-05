@@ -54,5 +54,15 @@
 }
 
 .user-avatar {
+    display: grid;
+    place-items: center;
     margin-left: 15px;
+    padding: 0;
+    
+    img {
+        width: 2em;
+        height: 2em;
+        border-radius: 0.2em;
+    }
+    
 }

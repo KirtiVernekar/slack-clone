@@ -49,18 +49,19 @@ const Chat = ({ channelId }) => {
                         </h4>
                         <p className="chat__channelDescription">{channelDetails?.description}</p>
                     </div>
-                    <div className="chat__headerRight">
+                    {/* <div className="chat__headerRight">
                         <p><InfoCircleOutlined />Details</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="chat__messages">
-                    {messages.map(({message, timestamp, user, profileImage}) => (
+                    {messages.map(({message, timestamp, user, profileImage, fileURL}) => (
                         <Message 
                             key={timestamp}
                             message={message}
                             timestamp={timestamp}
                             user={user}
                             profileImage={profileImage}
+                            fileURL={fileURL}
                         />
                     ))}
                 </div>

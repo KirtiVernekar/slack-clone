@@ -15,8 +15,14 @@ const firebaseConfig = {
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
   const storage = firebaseApp.storage();
+
+  //storage reference for image uploads
+  const storageRef = firebaseApp.storage().ref();
+  const imagesRef = storageRef.child('images');
+
+  //authentication providers
   const auth = firebase.auth();
   const providerGoogle = new firebase.auth.GoogleAuthProvider();
 
-  export { storage, auth, providerGoogle };
+  export { storage, storageRef, imagesRef, auth, providerGoogle };
   export default db;

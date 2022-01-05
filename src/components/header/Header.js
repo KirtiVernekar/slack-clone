@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-// import { Avatar} from 'antd';
+import { Avatar} from 'antd';
 import { ClockCircleOutlined, QuestionCircleOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons'
 import { StateContext } from '../../context/GlobalState';
 import { auth } from './../../firebase/firebase.utils'
@@ -7,8 +7,7 @@ import './Header.scss'
 
 
 function Header() {
-    // const {user} = useContext(StateContext);
-    const {setUser} = useContext(StateContext);
+    const { user, setUser} = useContext(StateContext);
 
     const signOut = (e) => {
         e.preventDefault();
@@ -34,8 +33,9 @@ function Header() {
                 {/* help icon */}
                 <QuestionCircleOutlined />
                 {/* Avatar for logged-in user */}
-                {/* <button onClick={signOut}><Avatar className='avatar' alt={user?.displayName} src={user?.photoURL}/></button> */}
-                <button className='user-avatar' onClick={signOut}><UserOutlined/></button>
+                <button className='user-avatar' onClick={signOut}>
+                    { user.photoURL ? <img src={user.photoURL} alt="" /> : <Avatar icon={<UserOutlined/>} shape="square" className="message__avatar"/> }
+                </button>
             </div>
         </div>
     )

@@ -25,21 +25,22 @@ function ChatInput({ channelName, channelId }) {
         // setEmojiPicker(false);
     }; 
 
-    const sendMessage = (event) => {
+    const sendMessage = (event, imageURL=null ) => {
         event.preventDefault();
         
-        if(!messageInput) {
-            alert("No message entered!")
-        } else {
+        if(messageInput || imageURL) {
             if (channelId) {
                 db.collection("channels").doc(channelId).collection("messages").add({
                     message: messageInput,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     user: user.displayName,
-                    profileImage: user.photoURL
+                    profileImage: user.photoURL,
+                    fileURL: imageURL
                 });
             }
             setMessageInput("");
+        } else {
+            alert("No message entered!");
         }
     }
 
@@ -47,23 +48,23 @@ function ChatInput({ channelName, channelId }) {
     return (
         <>
         <div className='chatInput'>
-            <form>
-                <input 
-                    onChange={(e) => setMessageInput(e.target.value)}
-                    type="text" 
-                    value={messageInput}
-                    placeholder={`Message #${channelName?.toLowerCase()}`} />
+            <input 
+                onChange={(e) => setMessageInput(e.target.value)}
+                type="text" 
+                value={messageInput}
+                placeholder={`Message #${channelName?.toLowerCase()}`} />
+            <div className='chatInput__options'>
                 <button 
                     onClick={handleTogglePicker}>
                     <SmileOutlined />
                 </button>
-                <FileUploadModal />
+                <FileUploadModal uploadMessage={sendMessage}/>
                 <button 
                     type="submit"
                     onClick={sendMessage}>
                     <SendOutlined />
                 </button>
-            </form>
+            </div>
         </div>
         {   emojiPicker &&
             <div className="emojiPicker">
