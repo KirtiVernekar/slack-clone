@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './SidebarOption.scss'
 
-function SidebarOption({ Icon, title, id, navLink, addChannelOption }) {
+function SidebarOption({ Icon, title, id, navLink }) {
     const navigate = useNavigate();
 
     const selectNavLink = () => {

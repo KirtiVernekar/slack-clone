@@ -29,7 +29,7 @@ const Chat = ({ channelId }) => {
         // setIsLoading(false);
         const timeout = setTimeout(() => {
             setIsLoading(false);
-        }, 3000)
+        }, 1000)
         return () => clearTimeout(timeout);
     }, [channelId]);
 

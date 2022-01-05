@@ -1,23 +1,4 @@
-.addChannel {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    
-    h4 {
-        font-weight: 400;
-        padding-bottom: 2px;
-        opacity: 0.8;
-    }
-}
-
-.addChannel__icon {
-    padding: 0.5em;
-    margin-left: 0.5em;
-}
-
-.modal {
+.filemodal {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,7 +13,6 @@
     &__container {
         border: none;
         border-radius: 5px;
-        max-width: 480px;
         position: relative;
         color: black;
         background-color: white;
@@ -40,6 +20,10 @@
         padding: 0 1.2em;
         animation-name: animatetop;
         animation-duration: 0.5s;
+
+        hr {
+            border-color: var(--slack-color-secondary);
+        }
     }
 
     &__header, &__form, &__footer {
@@ -52,17 +36,23 @@
 
     &__form {
         flex-direction: column;
-        width: inherit;
-
-        input, textarea {
-            margin: 0.5em;
-            font-size: 1.1em;
-            padding: 0.2em;
+        margin: 0.8em 0 0.5em 0 !important;
+        
+        input {
+            width: 580px !important;
+            font-size: 1.1em !important;
+            padding: 0.5em !important;
 
             &:active, &:focus {
-                border: 2px solid var(--slack-color-secondary);
+                border: 1px solid var(--slack-color-secondary);
                 outline: none;
             }
+        }
+
+        label {
+            margin-top: 0.2em;
+            font-size: 0.8em !important;
+            color: red;
         }
     }
     
@@ -70,11 +60,11 @@
         justify-content: center;
 
         button {
-            border-radius: 5px;
-            border: none;
-            padding: 0.2em 0.5em;
-            margin: 0.5em;
-            font-size: 1.2em;
+            border-radius: 5px !important;
+            border: none !important;
+            padding: 0.2em 0.5em !important;
+            margin: 0.5em !important;
+            font-size: 1.2em !important;
         }
 
         &--cta {
@@ -92,7 +82,3 @@
         to {top: 0; opacity: 1}
     }
 }
-
-
-
-

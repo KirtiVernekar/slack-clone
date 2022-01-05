@@ -12,24 +12,38 @@
         border-radius: 0.2em;
         flex-shrink: 0;
     }
-}
 
-.message__info {
-    padding: 0.5em;
-
-    h5 {
-        font-size: medium;
+    &__info {
+        padding: 0.5em;
+    
+        h5 {
+            font-size: medium;
+        }
+    
+        p {
+            color: #333;
+        }
     }
 
-    p {
-        color: #333;
+    &__timestamp {
+        margin-left: 0.3em;
+        color: gray;
+        font-weight: 400;
+        font-size: 0.8em;
+    
     }
-}
 
-.message__timestamp {
-    margin-left: 0.3em;
-    color: gray;
-    font-weight: 400;
-    font-size: 0.8em;
+    &__avatar {
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 0.2em;
+        display: grid;
+        place-items: center;
+        background-color: rgba(160, 160, 160, 0.5);
 
+        svg {
+            width: 1.5em;
+            height: 1.5em;
+        }
+    }
 }

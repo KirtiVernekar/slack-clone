@@ -2,10 +2,10 @@ import React from 'react'
 import './SkeletonLoader.scss'
   
 function SkeletonLoader() {
-    return (
-      <section>
-        <div className="messages">
-            {Array(7)
+  return (
+    <section>
+      <div className="messages">
+          { Array(6)
               .fill()
               .map((index) => (
                 <div key={index}>
@@ -19,14 +19,12 @@ function SkeletonLoader() {
                     </div>
                   </div>
                 </div>
-              ))}
-          </div>
-      </section>
-          
-    )
-  }
- 
+            ))}
+        </div>
+    </section> 
+  )
+}
   
-  export default SkeletonLoader
+  export default SkeletonLoader;
   
   

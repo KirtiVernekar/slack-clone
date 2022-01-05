@@ -1,19 +1,19 @@
 import React, { useState, useContext } from 'react'
-import { SendOutlined, SmileOutlined, PaperClipOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd';
-import { Picker } from "emoji-mart";
+import { StateContext } from '../../context/GlobalState'
+import firebase from '@firebase/app-compat'
+import db from '../../firebase/firebase.utils'
+import FileUploadModal from '../modal/FileUploadModal'
+import { SendOutlined, SmileOutlined } from '@ant-design/icons'
+import { Picker } from "emoji-mart"
 import 'emoji-mart/css/emoji-mart.css'
 import './ChatInput.scss'
-import { StateContext } from '../../context/GlobalState';
-import firebase from '@firebase/app-compat';
-import db from '../../firebase/firebase.utils';
+
 
 function ChatInput({ channelName, channelId }) {
     const { user } = useContext(StateContext);
     const [messageInput, setMessageInput] = useState("");
     const [emojiPicker, setEmojiPicker] = useState(false);
-    const [fileUpload, setFileUpload] = useState();
-    
+        
     const handleTogglePicker = (event) => {
         event.preventDefault();
         setEmojiPicker(!emojiPicker);
@@ -24,10 +24,6 @@ function ChatInput({ channelName, channelId }) {
         setMessageInput(newMessage);
         // setEmojiPicker(false);
     }; 
-
-    const handleAttachFile = (event) => {
-        event.preventDefault();
-    }
 
     const sendMessage = (event) => {
         event.preventDefault();
@@ -47,6 +43,7 @@ function ChatInput({ channelName, channelId }) {
         }
     }
 
+    
     return (
         <>
         <div className='chatInput'>
@@ -56,25 +53,16 @@ function ChatInput({ channelName, channelId }) {
                     type="text" 
                     value={messageInput}
                     placeholder={`Message #${channelName?.toLowerCase()}`} />
-                <Tooltip title="Add Emoji" placement="top">
-                    <button 
-                        onClick={handleTogglePicker}>
-                        <SmileOutlined />
-                    </button>
-                </Tooltip>
-                <Tooltip title="Attach File" placement="top">
-                    <button 
-                        onClick={handleAttachFile}>
-                        <PaperClipOutlined />
-                    </button>
-                </Tooltip>
-                <Tooltip title="Send now" placement="top">
-                    <button 
-                        type="submit"
-                        onClick={sendMessage}>
-                        <SendOutlined />
-                    </button>
-                </Tooltip>
+                <button 
+                    onClick={handleTogglePicker}>
+                    <SmileOutlined />
+                </button>
+                <FileUploadModal />
+                <button 
+                    type="submit"
+                    onClick={sendMessage}>
+                    <SendOutlined />
+                </button>
             </form>
         </div>
         {   emojiPicker &&
@@ -92,5 +80,5 @@ function ChatInput({ channelName, channelId }) {
     )
 }
 
-export default ChatInput
+export default ChatInput;
 
