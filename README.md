@@ -10,24 +10,26 @@
 
 <hr />
 
-<p align="left"> A chat application clone of Slack. It is built using <strong>ReactJS</strong>, <strong>Redux</strong> for state management, <strong>Firebase</strong> for authentication and database.</p>
+<p align="left"> A chat application clone of Slack. It is built using <strong>ReactJS</strong>, <strong>Context API</strong> for state management, <strong>Firebase</strong> for authentication and database.</p>
 
 
 ## :bulb:Features
 
 :heavy_check_mark: Realtime group chat
 
+:heavy_check_mark: Add channel feature
+
 :heavy_check_mark: Chat supports image and GIF uploads
 
 :heavy_check_mark: Emoji reactions to messages
-
-:heavy_check_mark: Reply in threads
 
 :heavy_check_mark: Login with Google or Email-Password
 
 :heavy_check_mark: User session persistence
 
 :heavy_check_mark: Skeleton loader
+
+:heavy_check_mark: Responsive Design
 
 
 ## :hammer:Built with
